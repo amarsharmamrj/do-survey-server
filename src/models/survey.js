@@ -6,8 +6,14 @@ const surveySchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    surveyNameStyle: {
+        type: String
+    },
     surveyDesc: {
         type: String,
+    },
+    surveyDescStyle: {
+        type: String
     },
     start_date: {
         type: String,

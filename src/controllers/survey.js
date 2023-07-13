@@ -11,8 +11,41 @@ const create = async (req, res) => {
     }
 }
 
+const update = async (req, res) => {
+    try {
+        console.log("model controller:", req.body)
+        const survey = await surveyService.update(req.body)
+        res.status(201).send(survey)
+    } catch (error) {
+        console.log("update survey:", error)
+        res.status(400).send(error)
+    }
+}
+
+const getAll = async (req, res) => {
+    try {
+        const surveys = await surveyService.getAll()
+        res.status(200).send(surveys)
+    } catch (error) {
+        console.log("error in getAll for survey:", error)
+    }
+}
+
+const getSurvey = async (req, res) => {
+    try {
+        const survey = await surveyService.getSurvey(req.params.id)
+        res.status(200).send(survey)
+    } catch (error) {
+        console.log("error in get survey:", error)
+        res.status(400).send(error)        
+    }
+}
+
 const surveyController = {
-    create
+    create,
+    update,
+    getAll,
+    getSurvey
 }
 
 export {
