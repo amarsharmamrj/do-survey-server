@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import Connection from './src/db/db.js'
 import baseRouter from './baseRouter.js'
 import cors from 'cors'
+import helmet from 'helmet'
 
 const app = express()
 dotenv.config();
@@ -16,6 +17,7 @@ var corsOptions = {
 app.use(cors(corsOptions)); 
 
 app.use(express.json())         //required to accept req.body as json aa
+app.use(helmet())
 app.use(baseRouter)
 
 app.use(function(req, res, next) {
