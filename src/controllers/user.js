@@ -52,7 +52,7 @@ const login = async (req, res) => {
             const { name, email, _id: userId } = user._doc
             res.status(200).send({ name, email, userId })
         } else {
-            res.status(400).send({ 'message': 'either email or password is wrong!' })
+            res.status(404).send({ 'message': 'either email or password is wrong!' })
         }
     } catch (error) {
         res.status(400).send(error)

@@ -28,10 +28,10 @@ const login = async (model) => {
         if (match) {
             return user
         } else {
-            throw new Error('Unable to login')
+            return null
         }
     } else {
-        throw new Error('Unable to login')
+       return null
     }
 }
 
