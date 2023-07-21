@@ -24,7 +24,7 @@ const update = async (req, res) => {
 
 const getAll = async (req, res) => {
     try {
-        const surveys = await surveyService.getAll()
+        const surveys = await surveyService.getAll(req.params.userId)
         res.status(200).send(surveys)
     } catch (error) {
         console.log("error in getAll for survey:", error)

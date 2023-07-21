@@ -13,8 +13,8 @@ const update = async (model) => {
 }
 
 
-const getAll = () => {
-    return Survey.find({}).sort({ "createdAt": -1 })
+const getAll = (userId) => {
+    return Survey.find({ userId: userId }).sort({ "createdAt": -1 })
 }
 
 
