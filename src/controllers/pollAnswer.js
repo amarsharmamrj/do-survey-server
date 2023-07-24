@@ -1,8 +1,8 @@
-import { answerService } from "../services/answer.js";
+import { pollAnswerService } from "../services/pollAnswer.js";
 
 const create = async (req, res) => {
     try {
-        const answer = await answerService.create(req.body)
+        const answer = await pollAnswerService.create(req.body)
         res.status(200).send(answer)
     } catch (error) {
         res.status(400).send(error)
@@ -11,7 +11,7 @@ const create = async (req, res) => {
 
 const getAllAnswers = async (req, res) => {
     try {
-        const answer = await answerService.getAllAnswers(req.params.surveyId)
+        const answer = await pollAnswerService.getAllAnswers(req.params.pollId)
         res.status(200).send(answer)
     } catch (error) {
         res.status(400).send(error)
@@ -19,16 +19,16 @@ const getAllAnswers = async (req, res) => {
 }
 const getAnswer = async (req, res) => {
     try {
-        const answer = await answerService.getAnswer(req.params.id)
+        const answer = await pollAnswerService.getAnswer(req.params.id)
         res.status(200).send(answer)
     } catch (error) {
         res.status(400).send(error)
     }
 }
-const answerController = {
+const pollAnswerController = {
     create,
     getAllAnswers,
     getAnswer,
 }
 
-export { answerController }
+export { pollAnswerController }
