@@ -25,10 +25,19 @@ const getAnswer = async (req, res) => {
         res.status(400).send(error)
     }
 }
+const deleteAnswer = async (req, res) => {
+    try {
+        const answer = await answerService.deleteAnswer(req.params.id)
+        res.status(200).send(answer)
+    } catch (error) {
+        res.status(400).send(error)
+    }
+}
 const answerController = {
     create,
     getAllAnswers,
     getAnswer,
+    deleteAnswer,
 }
 
 export { answerController }

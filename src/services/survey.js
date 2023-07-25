@@ -22,11 +22,16 @@ const getSurvey = (id) => {
     return Survey.find({ _id: id })
 }
 
+const deleteSurvey = (id) => {
+    return Survey.findByIdAndDelete({ _id: id })
+}
+
 const surveyService = {
     create,
     update,
     getAll,
-    getSurvey
+    getSurvey,
+    deleteSurvey
 }
 export {
     surveyService

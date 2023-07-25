@@ -41,11 +41,23 @@ const getSurvey = async (req, res) => {
     }
 }
 
+const deleteSurvey = async (req, res) => {
+    try {
+        const survey = await surveyService.deleteSurvey(req.params.id)
+        res.status(200).send(survey)
+    } catch (error) {
+        console.log("error in get survey:", error)
+        res.status(400).send(error)        
+    }
+}
+
+
 const surveyController = {
     create,
     update,
     getAll,
-    getSurvey
+    getSurvey,
+    deleteSurvey
 }
 
 export {

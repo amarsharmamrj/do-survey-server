@@ -14,11 +14,16 @@ const getAnswer = (id) => {
     return Answer.find({ _id: id })
 }
 
+const deleteAnswer = (id) => {
+    return Answer.findByIdAndDelete({ _id: id })
+}
+
 
 const answerService = {
     create,
     getAllAnswers,
-    getAnswer
+    getAnswer,
+    deleteAnswer,
 }
 
 export { answerService }
