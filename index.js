@@ -8,16 +8,18 @@ import helmet from 'helmet'
 const app = express()
 dotenv.config();
 
-app.use(express.json())         //required to accept req.body as json aa
-app.use(helmet())
-app.use(baseRouter)
-
 var corsOptions = {
     origin: '*',
     optionsSuccessStatus: 200,
     methods: "*"
 }
+
 app.use(cors(corsOptions)); 
+
+app.use(express.json())         //required to accept req.body as json aa
+app.use(helmet())
+app.use(baseRouter)
+
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
